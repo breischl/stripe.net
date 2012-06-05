@@ -1,10 +1,20 @@
 ﻿using Newtonsoft.Json;
 using Stripe.Infrastructure;
+using Stripe.Services;
 
 namespace Stripe
 {
-	public class StripeTokenService
+	public class StripeTokenService : StripeServiceBase
 	{
+        public StripeTokenService() : base()
+        {
+        }
+
+        public StripeTokenService(StripeConfiguration config)
+            : base(config)
+        {
+        }
+
 		public virtual StripeToken Create(StripeTokenCreateOptions createOptions)
 		{
 			var url = ParameterBuilder.ApplyAllParameters(createOptions, Urls.Tokens);

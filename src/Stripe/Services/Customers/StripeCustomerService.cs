@@ -1,10 +1,21 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Stripe.Services;
+using Stripe.Infrastructure;
 
 namespace Stripe
 {
-	public class StripeCustomerService
+	public class StripeCustomerService : StripeServiceBase
 	{
+        public StripeCustomerService() : base()
+        {
+        }
+
+        public StripeCustomerService(StripeConfiguration config)
+            : base(config)
+        {
+        }
+
 		public virtual StripeCustomer Create(StripeCustomerCreateOptions createOptions)
 		{
 			var url = ParameterBuilder.ApplyAllParameters(createOptions, Urls.Customers);

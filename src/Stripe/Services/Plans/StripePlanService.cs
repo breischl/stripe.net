@@ -2,11 +2,23 @@
 using System.Linq;
 using Newtonsoft.Json;
 using Stripe.Infrastructure;
+using Stripe.Services;
 
 namespace Stripe
 {
-	public class StripePlanService
+	public class StripePlanService : StripeServiceBase
 	{
+
+        public StripePlanService()
+            : base()
+        {
+        }
+
+        public StripePlanService(StripeConfiguration config)
+            : base(config)
+        {
+        }
+
 		public virtual StripePlan Create(StripePlanCreateOptions createOptions)
 		{
 			var url = ParameterBuilder.ApplyAllParameters(createOptions, Urls.Plans);

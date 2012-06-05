@@ -4,11 +4,22 @@ using System.Linq;
 using System.Text;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
+using Stripe.Services;
+using Stripe.Infrastructure;
 
 namespace Stripe
 {
-	public class StripeEventService
+	public class StripeEventService : StripeServiceBase
 	{
+        public StripeEventService() : base()
+        {
+        }
+
+        public StripeEventService(StripeConfiguration config)
+            : base(config)
+        {
+        }
+
 		public virtual StripeEvent Get(string eventId)
 		{
 			var url = string.Format("{0}/{1}", Urls.Events, eventId);

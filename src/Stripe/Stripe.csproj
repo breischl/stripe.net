@@ -71,6 +71,7 @@
     <Compile Include="Entities\StripeNextRecurringCharge.cs" />
     <Compile Include="Entities\StripeTransfer.cs" />
     <Compile Include="Entities\StripeTransferSummary.cs" />
+    <Compile Include="Infrastructure\StripeConfiguration.cs" />
     <Compile Include="Infrastructure\StripeDateTimeConverter.cs" />
     <Compile Include="Infrastructure\Mapper.cs" />
     <Compile Include="Entities\StripeCustomer.cs" />
@@ -92,6 +93,7 @@
     <Compile Include="Services\Customers\StripeCustomerService.cs" />
     <Compile Include="Services\Plans\StripePlanCreateOptions.cs" />
     <Compile Include="Services\Plans\StripePlanService.cs" />
+    <Compile Include="Services\StripeServiceBase.cs" />
     <Compile Include="Services\Tokens\StripeTokenCreateOptions.cs" />
     <Compile Include="Services\Tokens\StripeTokenService.cs" />
     <Compile Include="Infrastructure\StripeException.cs" />

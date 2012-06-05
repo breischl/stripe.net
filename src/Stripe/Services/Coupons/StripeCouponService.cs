@@ -2,11 +2,21 @@
 using System.Linq;
 using Newtonsoft.Json;
 using Stripe.Infrastructure;
+using Stripe.Services;
 
 namespace Stripe
 {
-	public class StripeCouponService
+	public class StripeCouponService : StripeServiceBase
 	{
+        public StripeCouponService() : base()
+        {
+        }
+
+        public StripeCouponService(StripeConfiguration config)
+            : base(config)
+        {
+        }
+
 		public virtual StripeCoupon Create(StripeCouponCreateOptions createOptions)
 		{
 			var url = ParameterBuilder.ApplyAllParameters(createOptions, Urls.Coupons);

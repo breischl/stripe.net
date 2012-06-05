@@ -3,11 +3,23 @@ using System.Linq;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Stripe.Infrastructure;
+using Stripe.Services;
 
 namespace Stripe
 {
-	public class StripeInvoiceService
+	public class StripeInvoiceService : StripeServiceBase
 	{
+        public StripeInvoiceService() : base()
+        {
+        }
+
+        public StripeInvoiceService(StripeConfiguration config)
+            : base(config)
+        {
+        }
+
+
+
 		public virtual StripeInvoice Get(string invoiceId)
 		{
 			var url = string.Format("{0}/{1}", Urls.Invoices, invoiceId);

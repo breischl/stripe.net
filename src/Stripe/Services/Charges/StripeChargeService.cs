@@ -2,11 +2,22 @@
 using System.Linq;
 using Newtonsoft.Json;
 using Stripe.Infrastructure;
+using Stripe.Services;
 
 namespace Stripe
 {
-	public class StripeChargeService
+	public class StripeChargeService : StripeServiceBase
 	{
+        public StripeChargeService() : base()
+        {
+        }
+
+        public StripeChargeService(StripeConfiguration config)
+            : base(config)
+        {
+        }
+
+
 		public virtual StripeCharge Create(StripeChargeCreateOptions createOptions)
 		{
 			var url = ParameterBuilder.ApplyAllParameters(createOptions, Urls.Charges);

@@ -11,7 +11,7 @@ namespace Stripe.Tests
 		protected static StripeCoupon StripeCoupon;
 		protected static StripeCard StripeCard;
 		
-		It should_have_a_new_id = () =>
+        It should_have_a_new_id = () =>
 			StripeCustomer.Id.ShouldNotBeNull();
 
 		It should_have_the_correct_email = () =>

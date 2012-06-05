@@ -3,11 +3,21 @@ using System.Linq;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Stripe.Infrastructure;
+using Stripe.Services;
 
 namespace Stripe
 {
-	public class StripeInvoiceItemService
+	public class StripeInvoiceItemService : StripeServiceBase
 	{
+        public StripeInvoiceItemService() : base()
+        {
+        }
+
+        public StripeInvoiceItemService(StripeConfiguration config)
+            : base(config)
+        {
+        }
+
 		public virtual StripeInvoiceItem Create(StripeInvoiceItemCreateOptions createOptions)
 		{
 			var url = ParameterBuilder.ApplyAllParameters(createOptions, Urls.InvoiceItems);
