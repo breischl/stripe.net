@@ -25,6 +25,9 @@ namespace Stripe
 		[JsonProperty("deleted")]
 		public bool? Deleted { get; set; }
 
+        [JsonProperty("account_balance")]
+        public int? AccountBalance { get; set; }
+
 		[JsonProperty("next_recurring_charge")]
 		public StripeNextRecurringCharge StripeNextRecurringCharge { get; set; }
 
